@@ -1,0 +1,10 @@
+#!/bin/bash
+if [ $(id -u) != 0 ]; then
+	echo "[-] not root, exiting"
+	exit
+else
+	echo "gcc -w panther.c -o panther"
+	gcc -w panther.c -o panther
+	./panther $1
+	rm panther
+fi
